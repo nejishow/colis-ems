@@ -3,19 +3,18 @@ const router = new express.Router()
 const Price = require("../models/price")
 const Weight = require("../models/weight")
 const Country = require("../models/country")
-cons = require('../middlewar')
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-router.get('/price', async (req, res) => {  // get one price
+router.post('/price', async (req, res) => {  // get one price
     try {
-        const price = await Price.findOne({ weight: req.body.weight, country: req.body.country })
+        const price = await Price.findOne({ weight: req.body.params.weight, country: req.body.params.country })
         if (!price) {
             return res.status(404).send('Prix non inexistant')
         }
-        res.status(200).send(price)
+        res.status(200).send(price.price)
     } catch (error) {
         res.status(404).send('Problem de serveur')
     }

@@ -7,7 +7,7 @@ const priceSchema = new mongoose.Schema({
         type: String,
     },
     weight: {
-        type: String,
+        type: Number,
     },
     enabled: {
         type: Boolean,
