@@ -11,7 +11,6 @@ const Country = require("../models/country")
 router.post('/price', async (req, res) => {  // get one price
     try {
         const price = await Price.findOne({ weight: req.body.params.weight, country: req.body.params.country })
-        console.log(price);
 
         if (!price) {
             return res.status(404).send('Prix non inexistant')

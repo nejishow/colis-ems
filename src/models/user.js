@@ -6,15 +6,6 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
     },
-    address: {
-        type: String
-    },
-    number: {
-        type: Number
-    },
-    birthDate: {
-        type: String,
-    },
     email: {
         type: String,
         required: true,
@@ -37,12 +28,6 @@ const userSchema = new mongoose.Schema({
                 throw new Error('Choisir un meilleur mot de passe')
             }
         }
-    },
-    gender: {
-        type: String,
-    },
-    avatar: {
-        type: String,
     },
     tokens: [{
         token: {

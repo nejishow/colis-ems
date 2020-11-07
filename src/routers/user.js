@@ -60,7 +60,7 @@ router.post('/users/login', async (req, res) => {
         const token = await user.generateToken()        
         return res.send({user,token})
     } catch (e) {
-        res.status(404).send('Email ou mot de passe erroné')
+        res.status(404).send(e)
     }
 })
 router.post('/users/logout', auth, async (req, res) => {    

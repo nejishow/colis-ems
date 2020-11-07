@@ -6,6 +6,7 @@ const userRouter = require("./routers/user")
 const priceRouter = require("./routers/price")
 const zonepriceRouter = require("./routers/zoneprice")
 const emsRouter = require("./routers/ems")
+const statsRouter = require("./routers/stats")
 
 
 const app = express()
@@ -25,6 +26,7 @@ app.use(userRouter)
 app.use(priceRouter)
 app.use(zonepriceRouter)
 app.use(emsRouter)
+app.use(statsRouter)
 
 let workers = [];
 

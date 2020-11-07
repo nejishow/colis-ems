@@ -71,6 +71,13 @@ const expressSchema = new mongoose.Schema(
     enabled: {
       type: Boolean,
       default: true
+    },
+    agent:{
+      type: String
+    },
+    type:{
+      type: Number,
+      default: 2
     }
   },
   { timestamps: true }

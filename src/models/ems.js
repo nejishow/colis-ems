@@ -50,10 +50,17 @@ const emsSchema = new mongoose.Schema(
         type: String
       }
     },
+    agent:{
+      type: String
+    },
     enabled: {
       type: Boolean,
       default: true
-    }
+  },
+  type:{
+    type: Number,
+    default: 1
+  }
   },
   { timestamps: true }
 );
