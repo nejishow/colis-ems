@@ -4,6 +4,7 @@ require('./db/mongoose')
 const path = require("path")
 const userRouter = require("./routers/user")
 const priceRouter = require("./routers/price")
+const zonepriceRouter = require("./routers/zoneprice")
 const emsRouter = require("./routers/ems")
 
 
@@ -22,6 +23,7 @@ app.use('/images', express.static(imagesPath))
 app.use(express.json())
 app.use(userRouter)
 app.use(priceRouter)
+app.use(zonepriceRouter)
 app.use(emsRouter)
 
 let workers = [];
