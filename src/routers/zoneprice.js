@@ -13,7 +13,6 @@ router.post('/zoneprice', async (req, res) => {  // get one price
         if (!price) {
             return res.status(404).send('Prix inexistant')
         }
-        console.log(price);
         res.status(200).send(price.price)
     } catch (error) {
         res.status(404).send('Problem de serveur')

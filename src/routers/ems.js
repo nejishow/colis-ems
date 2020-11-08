@@ -22,7 +22,6 @@ router.post('/ems', async (req, res) => {  // post one ems
 router.post('/ems-stats', async (req, res) => {
     try {
         let date = req.body.params.to.date
-        console.log(req.body.params.from);
         let neweYear = {}
         let newemonth = {}
         let emonth = await EMSMONTH.findOne({ date: date,type:1 })
@@ -138,6 +137,20 @@ router.get('/ems/:id', async (req, res) => {  // get all ems
         res.status(404).send('Problem de serveur')
     }
 })
+router.get('/emsToday', async (req, res) => {  // get all ems
+    try {
+        var date = ''
+        if (parseInt(new Date().getDate())<10) {
+            date = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-0'+ new Date().getDate()
+        } else {
+            date = new Date().getFullYear()+'-'+ (new Date().getMonth()+1)+'-'+ new Date().getDate()
+        }
+        const ems = await EMS.find({ 'to.date': date})
+        res.status(200).send(ems)
+    } catch (error) {
+        res.status(404).send('Problem de serveur')
+    }
+})
 
 router.post('/express', async (req, res) => {  // post one ems
     try {
@@ -164,5 +177,18 @@ router.get('/express/:id', async (req, res) => {  // get all ems
         res.status(404).send('Problem de serveur')
     }
 })
-
+router.get('/expressToday', async (req, res) => {  // get all ems
+    try {
+        var date = ''
+        if (parseInt(new Date().getDate())<10) {
+            date = new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-0'+ new Date().getDate()
+        } else {
+            date = new Date().getFullYear()+'-'+ (new Date().getMonth()+1)+'-'+ new Date().getDate()
+        }
+        const express = await EXPRESS.find({ 'from.date': date})
+        res.status(200).send(express)
+    } catch (error) {
+        res.status(404).send('Problem de serveur')
+    }
+})
 module.exports = router

@@ -77,11 +77,10 @@ userSchema.statics.isAdmin = async (email, password) => {
 userSchema.methods.generateToken = async function () {
     const user = this
     try {
-        const token = jwt.sign({ _id: user._id.toString() }, 'laIlaahaIlaAllah')
+        const token = jwt.sign({ _id: user._id.toString() }, process.env.jwt_secret)
             while (user.tokens.length > 1) {
                 user.tokens.shift()
             }
-
         user.tokens =  user.tokens.concat({token})
         await user.save()
         return  token
