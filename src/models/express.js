@@ -38,8 +38,8 @@ const expressSchema = new mongoose.Schema(
       isMarchandise: {
         type: Boolean
       },
-      etiquette: {
-        type: String
+      idNumber:{
+          type: String
       }
     },
     to: {

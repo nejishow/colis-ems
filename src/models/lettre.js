@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const emsSchema = new mongoose.Schema(
+const lettresSchema = new mongoose.Schema(
   {
     from: {
       name: {
@@ -52,7 +52,6 @@ const emsSchema = new mongoose.Schema(
       idNumber:{
           type: String
       }
-      
     },
     agent:{
       type: String
@@ -63,12 +62,12 @@ const emsSchema = new mongoose.Schema(
   },
   type:{
     type: Number,
-    default: 1
+    default: 3
   }
   },
   { timestamps: true }
 );
 
-const EMS = mongoose.model("ems", emsSchema);
+const lettres = mongoose.model("lettres", lettresSchema);
 
-module.exports = EMS;
+module.exports = lettres;
