@@ -22,12 +22,24 @@ router.post('/price', async (req, res) => {  // get one price
 })
 router.post('/lettrePrice', async (req, res) => {  // get one price
     try {
-        const price = await LETTREPRICE.findOne({ weight: req.body.params.weight, country: req.body.params.country })
+        const price = await LETTREPRICE.findOne({ weight: req.body.params.weight, zone: req.body.params.zone, type: req.body.params.type })
 
         if (!price) {
             return res.status(404).send('Prix non inexistant')
         }
         res.status(200).send(price.price)
+    } catch (error) {
+        res.status(404).send('Problem de serveur')
+    }
+})
+router.post('/lettrezone', async (req, res) => {  // get one price
+    try {
+        const zone = await LETTREPRICE.find({type: req.body.params.type })
+
+        if (!zone) {
+            return res.status(404).send('Prix non inexistant')
+        }
+        res.status(200).send(zone)
     } catch (error) {
         res.status(404).send('Problem de serveur')
     }

@@ -63,6 +63,10 @@ const lettresSchema = new mongoose.Schema(
   type:{
     type: Number,
     default: 3
+  },
+  typeName: {
+    type: String,
+    default: "Lettre"
   }
   },
   { timestamps: true }

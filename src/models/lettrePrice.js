@@ -1,21 +1,26 @@
-const mongoose = require('mongoose')
-const lettrePriceSchema = new mongoose.Schema({
+const mongoose = require("mongoose");
+const lettrePriceSchema = new mongoose.Schema(
+  {
     price: {
-        type: String,
+      type: String,
     },
-    country: {
-        type: String,
+    zone: {
+      type: String,
+    },
+    type: {
+      type: String,
     },
     weight: {
-        type: Number,
+      type: Number,
     },
     enabled: {
-        type: Boolean,
-        default: true
+      type: Boolean,
+      default: true,
     },
-},
-    { timestamps: true })
+  },
+  { timestamps: true }
+);
 
-const P = mongoose.model('lettrePrices', lettrePriceSchema)
+const P = mongoose.model("lettrePrices", lettrePriceSchema);
 
-module.exports = P
+module.exports = P;

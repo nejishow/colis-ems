@@ -64,6 +64,10 @@ const emsSchema = new mongoose.Schema(
   type:{
     type: Number,
     default: 1
+  },
+  typeName: {
+    type: String,
+    default: "Colis"
   }
   },
   { timestamps: true }

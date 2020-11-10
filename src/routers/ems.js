@@ -75,7 +75,7 @@ router.post('/allEms', async (req, res) => {  // get all ems
     try {
         const ems = await EMS.find({ 'to.date': req.body.params.date })
         const expres = await EXPRESS.find({ 'from.date': req.body.params.date })
-        const lettre = await LETTRE.find({ 'from.date': req.body.params.date })
+        const lettre = await LETTRE.find({ 'to.date': req.body.params.date })
         const data = ems.concat(expres).concat(lettre)
         res.status(200).send(data)
     } catch (error) {

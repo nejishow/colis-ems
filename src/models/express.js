@@ -78,6 +78,10 @@ const expressSchema = new mongoose.Schema(
     type:{
       type: Number,
       default: 2
+    },
+    typeName: {
+      type: String,
+      default: "Ems"
     }
   },
   { timestamps: true }
