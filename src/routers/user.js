@@ -16,19 +16,14 @@ router.get('/users/me',auth, async (req, res) => {
    res.status(201).send(req.user)
 })
 
-router.patch('/users/me', auth, async (req, res) => {
+router.patch('/users/pass', auth, async (req, res) => {
     try {
         const user = req.user
-        user.name = req.body.params.name
-        user.birthDate = req.body.params.birthDate
-        user.gender = req.body.params.gender
-        user.email = req.body.params.email
-        user.number = req.body.params.number
-        user.address = req.body.params.address
+        user.password = req.body.params
         await user.save()
         return res.send(user)
     } catch (error) {
-        res.status(404).send(error)
+        res.status(500).send(error)
     }
 })
 
